@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Coin from "./pages/Coin";
 import { makeStyles } from "@material-ui/core";
+import Alert from "./components/Alert";
 
 const useStyles = makeStyles(() => ({
   App: {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" component={Home} exact />
         <Route path="/coins/:id" component={Coin} exact />
       </div>
+      <Alert />
     </BrowserRouter>
   );
 }

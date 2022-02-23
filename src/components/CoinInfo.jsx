@@ -11,6 +11,8 @@ import {
   makeStyles,
   ThemeProvider,
 } from "@material-ui/core";
+import { Chart as ChartJS } from "chart.js/auto";
+import { Chart } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 
 const CoinInfo = ({ coin }) => {
@@ -45,7 +47,7 @@ const CoinInfo = ({ coin }) => {
     setHistoricData(data.prices);
   };
 
-  console.log(coin);
+  console.log(historicData);
 
   useEffect(() => {
     fetchHistoricData();
@@ -72,9 +74,9 @@ const CoinInfo = ({ coin }) => {
           />
         ) : (
           <>
-            {/* <Line
+            <Line
               data={{
-                labels: historicData.map((coin) => {
+                labels: historicData?.map((coin) => {
                   let date = new Date(coin[0]);
                   let time =
                     date.getHours() > 12
@@ -85,7 +87,7 @@ const CoinInfo = ({ coin }) => {
 
                 datasets: [
                   {
-                    data: historicData.map((coin) => coin[1]),
+                    data: historicData?.map((coin) => coin[1]),
                     label: `Price ( Past ${days} Days ) in ${currency}`,
                     borderColor: "#EEBC1D",
                   },
@@ -98,7 +100,7 @@ const CoinInfo = ({ coin }) => {
                   },
                 },
               }}
-            /> */}
+            />
             <div
               style={{
                 display: "flex",
